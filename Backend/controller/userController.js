@@ -76,3 +76,13 @@ export const userRegistration = async (req, res) => {
     res.status(500).json({ msg: "Server error during login" });
   }
 };
+
+//Get All  user
+  export const getUser= async(req,res)=>{
+  try {
+    let data= await userModel.find() ;
+     res.status(200).send(data)  
+  } catch (error) {
+     res.status(500).send({msg:"There is an error"})
+  }
+ }
